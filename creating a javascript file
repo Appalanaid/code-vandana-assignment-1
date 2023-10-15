@@ -1,0 +1,17 @@
+function reverseWordsInSentence(sentence) {
+ const words = sentence.split(' ');
+ const reversedWords = words.map(word => {
+ const reversed = word.split('').reverse().join('');
+ return reversed;
+ });
+ return reversedWords.join(' ');
+}
+function sortArrayDescending(arr) {
+ return arr.sort((a, b) => b - a);
+}
+const inputSentence = "Raju is my favourite";
+const reversedSentence = reverseWordsInSentence(inputSentence);
+console.log("Reversed Sentence:", reversedSentence);
+const inputArray = [6, 3, 8, 2, 6, 7];
+const sortedArray = sortArrayDescending(inputArray);
+console.log("Sorted Array in Descending Order:", sortedArray);
