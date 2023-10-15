@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Survey Form</title>
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+ }
+ .container {
+ width: 400px;
+ margin: 0 auto;
+ }
+ .form-group {
+ margin-bottom: 10px;
+ }
+ label {
+ display: block;
+ font-weight: bold;
+ }
+ select, input[type="text"], input[type="email"], input[type="tel"] {
+ width: 100%;
+ padding: 5px;
+ }
+ input[type="checkbox"] {
+ margin-right: 5px;
+ }
+ .buttons {
+ text-align: center;
+ }
+ </style>
+</head>
+<body>
+ <div class="container">
+ <h2>Survey Form</h2>
+ <form id="surveyForm">
+ <div class="form-group">
+ <label for="firstName">First Name:</label>
+ <input type="text" id="firstName" required>
+ </div>
+ <div class="form-group">
+ <label for="lastName">Last Name:</label>
+ <input type="text" id="lastName" required>
+ </div>
+ <div class="form-group">
+ <label for="dob">Date of Birth:</label>
+ <input type="date" id="dob" required>
+ </div>
+ <div class="form-group">
+ <label for="country">Country:</label>
+ <select id="country" required>
+ <option value="">Select Country</option>
+ <option value="usa">USA</option>
+ <option value="canada">Canada</option>
+ <option value="uk">UK</option>
+ </select>
+ </div>
+ <div class="form-group">
+ <label>Gender:</label>
+ <input type="checkbox" id="male" name="gender" value="Male"> Male
+ <input type="checkbox" id="female" name="gender" value="Female"> Female
+ </div>
+ <div class="form-group">
+ <label for="profession">Profession:</label>
+ <input type="text" id="profession" required>
+ </div>
+ <div class="form-group">
+ <label for="email">Email:</label>
+ <input type="email" id="email" required>
+ </div>
+ <div class="form-group">
+ <label for="mobile">Mobile Number:</label>
+ <input type="tel" id="mobile" required>
+ </div>
+ <div class="buttons">
+ <button type="button" id="resetButton" onclick="resetForm()">Reset</button>
+ <button type="button" id="submitButton" onclick="submitForm()">Submit</button>
+ </div>
+ </form>
+ </div>
+ <script>
+ function resetForm() {
+ document.getElementById("surveyForm").reset();
+ }
+ function submitForm() {
+ const firstName = document.getElementById("firstName").value;
+ const lastName = document.getElementById("lastName").value;
+ const dob = document.getElementById("dob").value;
+ const country = document.getElementById("country").value;
+ const gender = Array.from(document.getElementsByName("gender"))
+ .filter(input => input.checked)
+ .map(input => input.value);
+ const profession = document.getElementById("profession").value
